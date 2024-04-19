@@ -1,5 +1,5 @@
-#lock commit
+#forbid VS trash to avoid garbage(allow git push)
 
 
-./vs
-./vscode
+.vs
+.vscode
