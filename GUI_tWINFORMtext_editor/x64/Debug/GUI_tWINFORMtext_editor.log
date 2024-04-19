@@ -1,0 +1,4 @@
+﻿  MyForm.cpp
+D:\gitnext\GUI_tWINFORMtext_editor\GUI_tWINFORMtext_editor\MyForm.cpp(10,15): warning C4551: function call missing argument list
+  MyForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  GUI_tWINFORMtext_editor.vcxproj -> D:\gitnext\GUI_tWINFORMtext_editor\x64\Debug\GUI_tWINFORMtext_editor.exe

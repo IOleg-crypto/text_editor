@@ -1,0 +1,3 @@
+D:\gitnext\GUI_tWINFORMtext_editor\GUI_tWINFORMtext_editor\x64\Debug\GUI_tWINFORMtext_editor.vcxproj.AssemblyReference.cache
+D:\gitnext\GUI_tWINFORMtext_editor\GUI_tWINFORMtext_editor\x64\Debug\GUItWINFORMtexteditor.MyForm.resources
+D:\gitnext\GUI_tWINFORMtext_editor\GUI_tWINFORMtext_editor\x64\Debug\GUI_tWINFORMtext_editor.vcxproj.GenerateResource.cache
