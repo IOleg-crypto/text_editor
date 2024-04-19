@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Library.h"
+
 namespace GUItWINFORMtexteditor {
 
 	using namespace System;
@@ -36,6 +38,7 @@ namespace GUItWINFORMtexteditor {
 		}
 	private: System::Windows::Forms::RichTextBox^ richTextBox1;
 	private: System::Windows::Forms::CheckBox^ checkBox1;
+	private: System::Windows::Forms::Button^ button1;
 	protected:
 
 	private:
@@ -53,36 +56,47 @@ namespace GUItWINFORMtexteditor {
 		{
 			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// richTextBox1
 			// 
-			this->richTextBox1->Location = System::Drawing::Point(31, 39);
+			this->richTextBox1->Location = System::Drawing::Point(20, 37);
 			this->richTextBox1->Name = L"richTextBox1";
-			this->richTextBox1->Size = System::Drawing::Size(1123, 465);
+			this->richTextBox1->Size = System::Drawing::Size(1134, 474);
 			this->richTextBox1->TabIndex = 0;
 			this->richTextBox1->Text = L"";
-			//this->richTextBox1->BackColor = System::Drawing::Color::Red; #DEBUG : Tested
 			// 
 			// checkBox1
 			// 
 			this->checkBox1->AutoSize = true;
 			this->checkBox1->Location = System::Drawing::Point(31, 520);
 			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(95, 20);
+			this->checkBox1->Size = System::Drawing::Size(225, 20);
 			this->checkBox1->TabIndex = 1;
 			this->checkBox1->Text = L"Check color of label field to black";
 			this->checkBox1->UseVisualStyleBackColor = true;
 			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkBox1_CheckedChanged);
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(328, 517);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->TabIndex = 2;
+			this->button1->Text = L"Show info";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1166, 552);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->checkBox1);
 			this->Controls->Add(this->richTextBox1);
-			this->Name = L"Notepad";
+			this->Name = L"MyForm";
 			this->Text = L"Notepad";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->ResumeLayout(false);
@@ -93,6 +107,7 @@ namespace GUItWINFORMtexteditor {
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		//changing color field(black/white)
 		if (checkBox1->Checked)
 		{
 			this->richTextBox1->BackColor = System::Drawing::Color::Black;
@@ -101,8 +116,13 @@ namespace GUItWINFORMtexteditor {
 		else
 		{
 			this->richTextBox1->BackColor = System::Drawing::Color::White;
+			this->richTextBox1->ForeColor = System::Drawing::Color::Black; //#Fixed bug with text;
 		}
 	}
 		  
-	};
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		MessageBoxW(NULL, L"", L"", MB_ICONINFORMATION); //#FIX ME : error extern ....
+			
+	}
+};
 }

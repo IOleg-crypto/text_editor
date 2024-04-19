@@ -1,4 +1,11 @@
 ﻿  MyForm.cpp
-D:\gitnext\GUI_tWINFORMtext_editor\GUI_tWINFORMtext_editor\MyForm.cpp(10,15): warning C4551: function call missing argument list
+D:\gitnext\GUI_tWINFORMtext_editor\GUI_tWINFORMtext_editor\Library.h(8,1): warning C4005: '_WIN32_WINNT': macro redefinition
+  (compiling source file 'MyForm.cpp')
+  D:\gitnext\GUI_tWINFORMtext_editor\GUI_tWINFORMtext_editor\Library.h(6,1):
+  see previous definition of '_WIN32_WINNT'
+  
+D:\gitnext\GUI_tWINFORMtext_editor\GUI_tWINFORMtext_editor\MyForm.cpp(11,15): warning C4551: function call missing argument list
   MyForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
-  GUI_tWINFORMtext_editor.vcxproj -> D:\gitnext\GUI_tWINFORMtext_editor\x64\Release\GUI_tWINFORMtext_editor.exe
+MyForm.obj : error LNK2028: unresolved token (0A000402) "extern "C" int __cdecl MessageBoxW(struct HWND__ *,wchar_t const *,wchar_t const *,unsigned int)" (?MessageBoxW@@$$J0YAHPEAUHWND__@@PEB_W1I@Z) referenced in function "private: void __clrcall GUItWINFORMtexteditor::MyForm::button1_Click(class System::Object ^,class System::EventArgs ^)" (?button1_Click@MyForm@GUItWINFORMtexteditor@@$$FAE$AAMXPE$AAVObject@System@@PE$AAVEventArgs@4@@Z)
+MyForm.obj : error LNK2019: unresolved external symbol "extern "C" int __cdecl MessageBoxW(struct HWND__ *,wchar_t const *,wchar_t const *,unsigned int)" (?MessageBoxW@@$$J0YAHPEAUHWND__@@PEB_W1I@Z) referenced in function "private: void __clrcall GUItWINFORMtexteditor::MyForm::button1_Click(class System::Object ^,class System::EventArgs ^)" (?button1_Click@MyForm@GUItWINFORMtexteditor@@$$FAE$AAMXPE$AAVObject@System@@PE$AAVEventArgs@4@@Z)
+D:\gitnext\GUI_tWINFORMtext_editor\x64\Release\GUI_tWINFORMtext_editor.exe : fatal error LNK1120: 2 unresolved externals
