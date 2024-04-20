@@ -42,7 +42,26 @@ namespace GUItWINFORMtexteditor {
 
 
 	private: System::Windows::Forms::CheckBox^ checkBox2;
-	private: System::Windows::Forms::ProgressBar^ progressBar1;
+
+
+
+
+
+
+
+
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+	private: System::Windows::Forms::ToolStripMenuItem^ menuToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ sizeToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuItem2;
+	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuItem3;
+	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuItem4;
+	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuItem5;
+	private: System::Windows::Forms::ToolStripMenuItem^ deleteFieldToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ infoToolStripMenuItem;
+	private: System::ComponentModel::IContainer^ components;
+
+
 
 
 
@@ -52,7 +71,7 @@ namespace GUItWINFORMtexteditor {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -65,16 +84,23 @@ namespace GUItWINFORMtexteditor {
 			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->checkBox2 = (gcnew System::Windows::Forms::CheckBox());
-			this->progressBar1 = (gcnew System::Windows::Forms::ProgressBar());
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->menuToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->sizeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->toolStripMenuItem2 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->toolStripMenuItem3 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->toolStripMenuItem4 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->toolStripMenuItem5 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->deleteFieldToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->infoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// richTextBox1
 			// 
-			this->richTextBox1->AutoSize = true;
 			this->richTextBox1->Location = System::Drawing::Point(20, 37);
 			this->richTextBox1->Multiline = false;
 			this->richTextBox1->Name = L"richTextBox1";
-			this->richTextBox1->ShortcutsEnabled = false;
 			this->richTextBox1->Size = System::Drawing::Size(1134, 474);
 			this->richTextBox1->TabIndex = 0;
 			this->richTextBox1->Text = L"";
@@ -87,7 +113,7 @@ namespace GUItWINFORMtexteditor {
 			this->checkBox1->Name = L"checkBox1";
 			this->checkBox1->Size = System::Drawing::Size(225, 20);
 			this->checkBox1->TabIndex = 1;
-			this->checkBox1->Text = L"Check color of label field to black";
+			this->checkBox1->Text = L"Change color of field to black";
 			this->checkBox1->UseVisualStyleBackColor = true;
 			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkBox1_CheckedChanged);
 			// 
@@ -114,28 +140,98 @@ namespace GUItWINFORMtexteditor {
 			this->checkBox2->UseVisualStyleBackColor = true;
 			this->checkBox2->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkBox2_CheckedChanged);
 			// 
-			// progressBar1
+			// menuStrip1
 			// 
-			this->progressBar1->Location = System::Drawing::Point(605, 517);
-			this->progressBar1->Name = L"progressBar1";
-			this->progressBar1->Size = System::Drawing::Size(160, 29);
-			this->progressBar1->TabIndex = 5;
-			this->progressBar1->Click += gcnew System::EventHandler(this, &MyForm::progressBar1_Click);
+			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->menuToolStripMenuItem,
+					this->infoToolStripMenuItem
+			});
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(1166, 28);
+			this->menuStrip1->TabIndex = 6;
+			this->menuStrip1->Text = L"menuStrip1";
+			// 
+			// menuToolStripMenuItem
+			// 
+			this->menuToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->sizeToolStripMenuItem,
+					this->deleteFieldToolStripMenuItem
+			});
+			this->menuToolStripMenuItem->Name = L"menuToolStripMenuItem";
+			this->menuToolStripMenuItem->Size = System::Drawing::Size(60, 24);
+			this->menuToolStripMenuItem->Text = L"Menu";
+			// 
+			// sizeToolStripMenuItem
+			// 
+			this->sizeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+				this->toolStripMenuItem2,
+					this->toolStripMenuItem3, this->toolStripMenuItem4, this->toolStripMenuItem5
+			});
+			this->sizeToolStripMenuItem->Name = L"sizeToolStripMenuItem";
+			this->sizeToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->sizeToolStripMenuItem->Text = L"Size";
+			// 
+			// toolStripMenuItem2
+			// 
+			this->toolStripMenuItem2->Name = L"toolStripMenuItem2";
+			this->toolStripMenuItem2->Size = System::Drawing::Size(119, 26);
+			this->toolStripMenuItem2->Text = L"10.0";
+			this->toolStripMenuItem2->Click += gcnew System::EventHandler(this, &MyForm::toolStripMenuItem2_Click);
+			// 
+			// toolStripMenuItem3
+			// 
+			this->toolStripMenuItem3->Name = L"toolStripMenuItem3";
+			this->toolStripMenuItem3->Size = System::Drawing::Size(119, 26);
+			this->toolStripMenuItem3->Text = L"15.0";
+			this->toolStripMenuItem3->Click += gcnew System::EventHandler(this, &MyForm::toolStripMenuItem3_Click);
+			// 
+			// toolStripMenuItem4
+			// 
+			this->toolStripMenuItem4->Name = L"toolStripMenuItem4";
+			this->toolStripMenuItem4->Size = System::Drawing::Size(119, 26);
+			this->toolStripMenuItem4->Text = L"20.0";
+			this->toolStripMenuItem4->Click += gcnew System::EventHandler(this, &MyForm::toolStripMenuItem4_Click);
+			// 
+			// toolStripMenuItem5
+			// 
+			this->toolStripMenuItem5->Name = L"toolStripMenuItem5";
+			this->toolStripMenuItem5->Size = System::Drawing::Size(119, 26);
+			this->toolStripMenuItem5->Text = L"22.0";
+			this->toolStripMenuItem5->Click += gcnew System::EventHandler(this, &MyForm::toolStripMenuItem5_Click);
+			// 
+			// deleteFieldToolStripMenuItem
+			// 
+			this->deleteFieldToolStripMenuItem->Name = L"deleteFieldToolStripMenuItem";
+			this->deleteFieldToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->deleteFieldToolStripMenuItem->Text = L"Delete field";
+			this->deleteFieldToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::deleteFieldToolStripMenuItem_Click);
+			// 
+			// infoToolStripMenuItem
+			// 
+			this->infoToolStripMenuItem->Name = L"infoToolStripMenuItem";
+			this->infoToolStripMenuItem->Size = System::Drawing::Size(49, 24);
+			this->infoToolStripMenuItem->Text = L"Info";
+			this->infoToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::infoToolStripMenuItem_Click);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1166, 552);
-			this->Controls->Add(this->progressBar1);
 			this->Controls->Add(this->checkBox2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->checkBox1);
 			this->Controls->Add(this->richTextBox1);
+			this->Controls->Add(this->menuStrip1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
+			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MyForm";
 			this->Text = L"Notepad";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -143,6 +239,7 @@ namespace GUItWINFORMtexteditor {
 #pragma endregion
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
+    
 	private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 		//changing color field(black/white)
 		if (checkBox1->Checked)
@@ -158,26 +255,45 @@ namespace GUItWINFORMtexteditor {
 	}
 	//Showing short infomation	  
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		MessageBox::Show("Notepad had been made by I#Oleg \n @Copyright 2024" , "\tInformation" , MessageBoxButtons::OK , MessageBoxIcon::Information);
+		
 			
 	}
 private: System::Void richTextBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Tahoma", 20.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-		static_cast<System::Byte>(0)));
+	//this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Tahoma", 20.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+		//static_cast<System::Byte>(0)));
 }
-/* Bullshut
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	bool buttonwasclicked = false;
-	if (buttonwasclicked == true) { this->button2->Text = L"Disable readonly"; this->richTextBox1->ReadOnly = true; }
-	else  this->button2->Text = L"Enable readonly";  this->richTextBox1->ReadOnly = false;
-}
-*/
 	private: System::Void checkBox2_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	if (checkBox2->Checked) {this->checkBox2->Text = L"Disable readonly"; this->richTextBox1->ReadOnly = true;
 	}
 	else { this->checkBox2->Text = L"Enable readonly";  this->richTextBox1->ReadOnly = false; }
 }
-private: System::Void progressBar1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+}
+
+private: System::Void toolStripMenuItem2_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Tahoma", 10.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+		static_cast<System::Byte>(0)));
+}
+private: System::Void toolStripMenuItem3_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Tahoma", 15.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+		static_cast<System::Byte>(0)));
+}
+
+private: System::Void toolStripMenuItem4_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Tahoma", 20.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+		static_cast<System::Byte>(0)));
+}
+private: System::Void toolStripMenuItem5_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Tahoma", 22.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+		static_cast<System::Byte>(0)));
+}
+private: System::Void deleteFieldToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->richTextBox1->Text = "";
+}
+private: System::Void infoToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	MessageBox::Show("Notepad had been made by I#Oleg \n @Copyright 2024", "\tInformation", MessageBoxButtons::OK, MessageBoxIcon::Information);
 }
 };
 }
