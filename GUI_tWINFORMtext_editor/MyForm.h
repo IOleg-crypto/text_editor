@@ -59,6 +59,9 @@ namespace GUItWINFORMtexteditor {
 	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuItem5;
 	private: System::Windows::Forms::ToolStripMenuItem^ deleteFieldToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ infoToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ openFileToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ newFileToolStripMenuItem;
+
 	private: System::ComponentModel::IContainer^ components;
 
 
@@ -92,7 +95,9 @@ namespace GUItWINFORMtexteditor {
 			this->toolStripMenuItem4 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->toolStripMenuItem5 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->deleteFieldToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->openFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->infoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->newFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -111,7 +116,7 @@ namespace GUItWINFORMtexteditor {
 			this->checkBox1->AutoSize = true;
 			this->checkBox1->Location = System::Drawing::Point(31, 520);
 			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(225, 20);
+			this->checkBox1->Size = System::Drawing::Size(201, 20);
 			this->checkBox1->TabIndex = 1;
 			this->checkBox1->Text = L"Change color of field to black";
 			this->checkBox1->UseVisualStyleBackColor = true;
@@ -155,9 +160,9 @@ namespace GUItWINFORMtexteditor {
 			// 
 			// menuToolStripMenuItem
 			// 
-			this->menuToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->menuToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->sizeToolStripMenuItem,
-					this->deleteFieldToolStripMenuItem
+					this->deleteFieldToolStripMenuItem, this->openFileToolStripMenuItem, this->newFileToolStripMenuItem
 			});
 			this->menuToolStripMenuItem->Name = L"menuToolStripMenuItem";
 			this->menuToolStripMenuItem->Size = System::Drawing::Size(60, 24);
@@ -208,12 +213,26 @@ namespace GUItWINFORMtexteditor {
 			this->deleteFieldToolStripMenuItem->Text = L"Delete field";
 			this->deleteFieldToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::deleteFieldToolStripMenuItem_Click);
 			// 
+			// openFileToolStripMenuItem
+			// 
+			this->openFileToolStripMenuItem->Name = L"openFileToolStripMenuItem";
+			this->openFileToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->openFileToolStripMenuItem->Text = L"Open file";
+			this->openFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::openFileToolStripMenuItem_Click);
+			// 
 			// infoToolStripMenuItem
 			// 
 			this->infoToolStripMenuItem->Name = L"infoToolStripMenuItem";
 			this->infoToolStripMenuItem->Size = System::Drawing::Size(49, 24);
 			this->infoToolStripMenuItem->Text = L"Info";
 			this->infoToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::infoToolStripMenuItem_Click);
+			// 
+			// newFileToolStripMenuItem
+			// 
+			this->newFileToolStripMenuItem->Name = L"newFileToolStripMenuItem";
+			this->newFileToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->newFileToolStripMenuItem->Text = L"New file";
+			this->newFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::newFileToolStripMenuItem_Click);
 			// 
 			// MyForm
 			// 
@@ -294,6 +313,39 @@ private: System::Void deleteFieldToolStripMenuItem_Click(System::Object^ sender,
 }
 private: System::Void infoToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	MessageBox::Show("Notepad had been made by I#Oleg \n @Copyright 2024", "\tInformation", MessageBoxButtons::OK, MessageBoxIcon::Information);
+}
+	private: System::Void openFileToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
+		openFileDialog1->ShowDialog();
+		richTextBox1->Text = System::IO::File::ReadAllText(openFileDialog1->FileName, System::Text::Encoding::Default);
+		/*
+		Stream^ mystream;
+		//read file and copy to richtextbox
+		if ()
+		{
+			if(openFileDialog1->ShowDialog() != System::Windows::Forms::DialogResult::OK)
+			String^ text = openFileDialog1->InitialDirectory + openFileDialog1->FileName;
+			String^ readtext = File::ReadAllText;
+			this->richTextBox1->Text = text;
+		}
+		*/
+
+	}
+		
+private: System::Void newFileToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	SaveFileDialog^ saveFile1 = gcnew SaveFileDialog;
+
+	// Initialize the SaveFileDialog to specify the RTF extention for the file.
+	saveFile1->DefaultExt = "*.txt";
+	saveFile1->Filter = "RTF Files|*.txt";
+
+	// Determine whether the user selected a file name from the saveFileDialog. 
+	if (saveFile1->ShowDialog() == System::Windows::Forms::DialogResult::OK &&
+		saveFile1->FileName->Length > 0)
+	{
+		// Save the contents of the RichTextBox into the file.
+		richTextBox1->SaveFile(saveFile1->FileName); //save text from richtextbox to new file
+	}
 }
 };
 }
