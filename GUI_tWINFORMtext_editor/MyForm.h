@@ -67,6 +67,7 @@ namespace GUItWINFORMtexteditor {
 	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuItem1;
 	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuItem7;
 	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuItem8;
+	private: System::Windows::Forms::ToolStripMenuItem^ complieToolStripMenuItem;
 
 
 	private: System::ComponentModel::IContainer^ components;
@@ -90,6 +91,7 @@ namespace GUItWINFORMtexteditor {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox2 = (gcnew System::Windows::Forms::CheckBox());
@@ -100,6 +102,8 @@ namespace GUItWINFORMtexteditor {
 			this->toolStripMenuItem3 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->toolStripMenuItem4 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->toolStripMenuItem5 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->toolStripMenuItem7 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->toolStripMenuItem8 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->deleteFieldToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->openFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->newFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -108,8 +112,7 @@ namespace GUItWINFORMtexteditor {
 			this->regularToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->toolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->infoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->toolStripMenuItem7 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->toolStripMenuItem8 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->complieToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -148,9 +151,9 @@ namespace GUItWINFORMtexteditor {
 			// menuStrip1
 			// 
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
 				this->menuToolStripMenuItem,
-					this->infoToolStripMenuItem
+					this->infoToolStripMenuItem, this->complieToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
@@ -206,24 +209,38 @@ namespace GUItWINFORMtexteditor {
 			this->toolStripMenuItem5->Text = L"22.0";
 			this->toolStripMenuItem5->Click += gcnew System::EventHandler(this, &MyForm::toolStripMenuItem5_Click);
 			// 
+			// toolStripMenuItem7
+			// 
+			this->toolStripMenuItem7->Name = L"toolStripMenuItem7";
+			this->toolStripMenuItem7->Size = System::Drawing::Size(119, 26);
+			this->toolStripMenuItem7->Text = L"25.0";
+			this->toolStripMenuItem7->Click += gcnew System::EventHandler(this, &MyForm::toolStripMenuItem7_Click);
+			// 
+			// toolStripMenuItem8
+			// 
+			this->toolStripMenuItem8->Name = L"toolStripMenuItem8";
+			this->toolStripMenuItem8->Size = System::Drawing::Size(119, 26);
+			this->toolStripMenuItem8->Text = L"30.0";
+			this->toolStripMenuItem8->Click += gcnew System::EventHandler(this, &MyForm::toolStripMenuItem8_Click);
+			// 
 			// deleteFieldToolStripMenuItem
 			// 
 			this->deleteFieldToolStripMenuItem->Name = L"deleteFieldToolStripMenuItem";
-			this->deleteFieldToolStripMenuItem->Size = System::Drawing::Size(170, 26);
+			this->deleteFieldToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->deleteFieldToolStripMenuItem->Text = L"Delete field";
 			this->deleteFieldToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::deleteFieldToolStripMenuItem_Click);
 			// 
 			// openFileToolStripMenuItem
 			// 
 			this->openFileToolStripMenuItem->Name = L"openFileToolStripMenuItem";
-			this->openFileToolStripMenuItem->Size = System::Drawing::Size(170, 26);
+			this->openFileToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->openFileToolStripMenuItem->Text = L"Open file";
 			this->openFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::openFileToolStripMenuItem_Click);
 			// 
 			// newFileToolStripMenuItem
 			// 
 			this->newFileToolStripMenuItem->Name = L"newFileToolStripMenuItem";
-			this->newFileToolStripMenuItem->Size = System::Drawing::Size(170, 26);
+			this->newFileToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->newFileToolStripMenuItem->Text = L"Save file";
 			this->newFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::newFileToolStripMenuItem_Click);
 			// 
@@ -234,7 +251,7 @@ namespace GUItWINFORMtexteditor {
 					this->regularToolStripMenuItem, this->toolStripMenuItem1
 			});
 			this->textStyleToolStripMenuItem->Name = L"textStyleToolStripMenuItem";
-			this->textStyleToolStripMenuItem->Size = System::Drawing::Size(170, 26);
+			this->textStyleToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->textStyleToolStripMenuItem->Text = L"Text style";
 			// 
 			// boldToolStripMenuItem
@@ -261,23 +278,15 @@ namespace GUItWINFORMtexteditor {
 			// infoToolStripMenuItem
 			// 
 			this->infoToolStripMenuItem->Name = L"infoToolStripMenuItem";
-			this->infoToolStripMenuItem->Size = System::Drawing::Size(49, 26);
+			this->infoToolStripMenuItem->Size = System::Drawing::Size(49, 24);
 			this->infoToolStripMenuItem->Text = L"Info";
 			this->infoToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::infoToolStripMenuItem_Click);
 			// 
-			// toolStripMenuItem7
+			// complieToolStripMenuItem
 			// 
-			this->toolStripMenuItem7->Name = L"toolStripMenuItem7";
-			this->toolStripMenuItem7->Size = System::Drawing::Size(224, 26);
-			this->toolStripMenuItem7->Text = L"25.0";
-			this->toolStripMenuItem7->Click += gcnew System::EventHandler(this, &MyForm::toolStripMenuItem7_Click);
-			// 
-			// toolStripMenuItem8
-			// 
-			this->toolStripMenuItem8->Name = L"toolStripMenuItem8";
-			this->toolStripMenuItem8->Size = System::Drawing::Size(224, 26);
-			this->toolStripMenuItem8->Text = L"30.0";
-			this->toolStripMenuItem8->Click += gcnew System::EventHandler(this, &MyForm::toolStripMenuItem8_Click);
+			this->complieToolStripMenuItem->Name = L"complieToolStripMenuItem";
+			this->complieToolStripMenuItem->Size = System::Drawing::Size(108, 24);
+			this->complieToolStripMenuItem->Text = L"Loading font";
 			// 
 			// MyForm
 			// 
@@ -289,6 +298,8 @@ namespace GUItWINFORMtexteditor {
 			this->Controls->Add(this->richTextBox1);
 			this->Controls->Add(this->menuStrip1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->KeyPreview = true;
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MyForm";
 			this->Text = L"Notepad";
@@ -407,9 +418,10 @@ private: System::Void toolStripMenuItem8_Click(System::Object^ sender, System::E
 	this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Tahoma", 25.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 		static_cast<System::Byte>(0)));
 }
-private: System::Void toolStripMenuItem7_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Tahoma", 25.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-		static_cast<System::Byte>(0)));
-}
+	private: System::Void toolStripMenuItem7_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Tahoma", 25.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(0)));
+
+	}
 };
 }
