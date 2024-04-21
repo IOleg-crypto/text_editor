@@ -370,14 +370,15 @@ private: System::Void newFileToolStripMenuItem_Click(System::Object^ sender, Sys
 
 	// Initialize the SaveFileDialog to specify the RTF extention for the file.
 	//saveFile1->DefaultExt = "*.txt";
-	//saveFile1->Filter = "All files *. *";
+	saveFile1->Filter = "Text files|*.txt";
+	saveFile1->Title = "Save file";
 	saveFile1->RestoreDirectory = true;
 	// Determine whether the user selected a file name from the saveFileDialog. 
 	if (saveFile1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 	{
 		// Save the contents of the RichTextBox into the file.
-		System::IO::File::WriteAllText(saveFile1->FileName, richTextBox1->Text, System::Text::Encoding::Default);
-		richTextBox1->SaveFile(saveFile1->FileName); //save text from richtextbox to new file
+		//System::IO::File::WriteAllText(saveFile1->FileName, richTextBox1->Text, System::Text::Encoding::Default);
+		richTextBox1->SaveFile(saveFile1->FileName , RichTextBoxStreamType::PlainText); //save text from richtextbox to new file (without encoding)
 		//richTextBox1->SaveFile(saveFile1->FileName) = System::Drawing::	
 	}
 	else

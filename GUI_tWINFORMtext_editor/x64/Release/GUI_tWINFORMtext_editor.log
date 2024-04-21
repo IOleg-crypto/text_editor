@@ -1,2 +1,9 @@
-﻿  MyForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+﻿  MyForm.cpp
+D:\gitnext\GUI_tWINFORMtext_editor\GUI_tWINFORMtext_editor\Library.h(8,1): warning C4005: '_WIN32_WINNT': macro redefinition
+  (compiling source file 'MyForm.cpp')
+  D:\gitnext\GUI_tWINFORMtext_editor\GUI_tWINFORMtext_editor\Library.h(6,1):
+  see previous definition of '_WIN32_WINNT'
+  
+D:\gitnext\GUI_tWINFORMtext_editor\GUI_tWINFORMtext_editor\MyForm.cpp(11,15): warning C4551: function call missing argument list
+  MyForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   GUI_tWINFORMtext_editor.vcxproj -> D:\gitnext\GUI_tWINFORMtext_editor\x64\Release\GUI_tWINFORMtext_editor.exe
