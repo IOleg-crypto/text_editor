@@ -65,6 +65,8 @@ namespace GUItWINFORMtexteditor {
 	private: System::Windows::Forms::ToolStripMenuItem^ boldToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ regularToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuItem1;
+	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuItem7;
+	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuItem8;
 
 
 	private: System::ComponentModel::IContainer^ components;
@@ -106,6 +108,8 @@ namespace GUItWINFORMtexteditor {
 			this->regularToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->toolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->infoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->toolStripMenuItem7 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->toolStripMenuItem8 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -150,7 +154,7 @@ namespace GUItWINFORMtexteditor {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1166, 30);
+			this->menuStrip1->Size = System::Drawing::Size(1166, 28);
 			this->menuStrip1->TabIndex = 6;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -161,17 +165,17 @@ namespace GUItWINFORMtexteditor {
 					this->deleteFieldToolStripMenuItem, this->openFileToolStripMenuItem, this->newFileToolStripMenuItem, this->textStyleToolStripMenuItem
 			});
 			this->menuToolStripMenuItem->Name = L"menuToolStripMenuItem";
-			this->menuToolStripMenuItem->Size = System::Drawing::Size(60, 26);
+			this->menuToolStripMenuItem->Size = System::Drawing::Size(60, 24);
 			this->menuToolStripMenuItem->Text = L"Menu";
 			// 
 			// sizeToolStripMenuItem
 			// 
-			this->sizeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+			this->sizeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(6) {
 				this->toolStripMenuItem2,
-					this->toolStripMenuItem3, this->toolStripMenuItem4, this->toolStripMenuItem5
+					this->toolStripMenuItem3, this->toolStripMenuItem4, this->toolStripMenuItem5, this->toolStripMenuItem7, this->toolStripMenuItem8
 			});
 			this->sizeToolStripMenuItem->Name = L"sizeToolStripMenuItem";
-			this->sizeToolStripMenuItem->Size = System::Drawing::Size(170, 26);
+			this->sizeToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->sizeToolStripMenuItem->Text = L"Size";
 			// 
 			// toolStripMenuItem2
@@ -260,6 +264,20 @@ namespace GUItWINFORMtexteditor {
 			this->infoToolStripMenuItem->Size = System::Drawing::Size(49, 26);
 			this->infoToolStripMenuItem->Text = L"Info";
 			this->infoToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::infoToolStripMenuItem_Click);
+			// 
+			// toolStripMenuItem7
+			// 
+			this->toolStripMenuItem7->Name = L"toolStripMenuItem7";
+			this->toolStripMenuItem7->Size = System::Drawing::Size(224, 26);
+			this->toolStripMenuItem7->Text = L"25.0";
+			this->toolStripMenuItem7->Click += gcnew System::EventHandler(this, &MyForm::toolStripMenuItem7_Click);
+			// 
+			// toolStripMenuItem8
+			// 
+			this->toolStripMenuItem8->Name = L"toolStripMenuItem8";
+			this->toolStripMenuItem8->Size = System::Drawing::Size(224, 26);
+			this->toolStripMenuItem8->Text = L"30.0";
+			this->toolStripMenuItem8->Click += gcnew System::EventHandler(this, &MyForm::toolStripMenuItem8_Click);
 			// 
 			// MyForm
 			// 
@@ -384,6 +402,14 @@ private: System::Void regularToolStripMenuItem_Click(System::Object^ sender, Sys
 	System::Drawing::FontStyle newFontStyle;
 	newFontStyle = FontStyle::Regular;
 	richTextBox1->SelectionFont = gcnew System::Drawing::Font(currentFont->FontFamily, currentFont->Size, newFontStyle);
+}
+private: System::Void toolStripMenuItem8_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Tahoma", 25.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+		static_cast<System::Byte>(0)));
+}
+private: System::Void toolStripMenuItem7_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Tahoma", 25.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+		static_cast<System::Byte>(0)));
 }
 };
 }
