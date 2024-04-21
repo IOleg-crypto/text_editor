@@ -1,5 +1,4 @@
 #pragma once
 
 #include "Library.h"
-
-int start_position = 0;
+#include "MyForm.cpp"

@@ -13,6 +13,13 @@
 //  STL library
 
 #include <iostream>
+#include <ostream>
+#include <fstream>
+#include <msclr/marshal.h>
+#include <array>
+
+using namespace msclr::interop;
+
 /*
 
 #if defined _WIN64 //need to bulid(avoid error)

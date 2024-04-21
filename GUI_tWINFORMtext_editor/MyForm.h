@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Library.h"
+//#include "Extension.h"
 
 namespace GUItWINFORMtexteditor {
 
@@ -119,6 +120,7 @@ namespace GUItWINFORMtexteditor {
 			// richTextBox1
 			// 
 			this->richTextBox1->AcceptsTab = true;
+			this->richTextBox1->AutoWordSelection = true;
 			this->richTextBox1->Location = System::Drawing::Point(20, 37);
 			this->richTextBox1->Name = L"richTextBox1";
 			this->richTextBox1->Size = System::Drawing::Size(1134, 474);
@@ -167,6 +169,7 @@ namespace GUItWINFORMtexteditor {
 				this->sizeToolStripMenuItem,
 					this->deleteFieldToolStripMenuItem, this->openFileToolStripMenuItem, this->newFileToolStripMenuItem, this->textStyleToolStripMenuItem
 			});
+			this->menuToolStripMenuItem->ImageAlign = System::Drawing::ContentAlignment::TopRight;
 			this->menuToolStripMenuItem->Name = L"menuToolStripMenuItem";
 			this->menuToolStripMenuItem->Size = System::Drawing::Size(60, 24);
 			this->menuToolStripMenuItem->Text = L"Menu";
@@ -178,7 +181,7 @@ namespace GUItWINFORMtexteditor {
 					this->toolStripMenuItem3, this->toolStripMenuItem4, this->toolStripMenuItem5, this->toolStripMenuItem7, this->toolStripMenuItem8
 			});
 			this->sizeToolStripMenuItem->Name = L"sizeToolStripMenuItem";
-			this->sizeToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->sizeToolStripMenuItem->Size = System::Drawing::Size(170, 26);
 			this->sizeToolStripMenuItem->Text = L"Size";
 			// 
 			// toolStripMenuItem2
@@ -226,21 +229,21 @@ namespace GUItWINFORMtexteditor {
 			// deleteFieldToolStripMenuItem
 			// 
 			this->deleteFieldToolStripMenuItem->Name = L"deleteFieldToolStripMenuItem";
-			this->deleteFieldToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->deleteFieldToolStripMenuItem->Size = System::Drawing::Size(170, 26);
 			this->deleteFieldToolStripMenuItem->Text = L"Delete field";
 			this->deleteFieldToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::deleteFieldToolStripMenuItem_Click);
 			// 
 			// openFileToolStripMenuItem
 			// 
 			this->openFileToolStripMenuItem->Name = L"openFileToolStripMenuItem";
-			this->openFileToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->openFileToolStripMenuItem->Size = System::Drawing::Size(170, 26);
 			this->openFileToolStripMenuItem->Text = L"Open file";
 			this->openFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::openFileToolStripMenuItem_Click);
 			// 
 			// newFileToolStripMenuItem
 			// 
 			this->newFileToolStripMenuItem->Name = L"newFileToolStripMenuItem";
-			this->newFileToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->newFileToolStripMenuItem->Size = System::Drawing::Size(170, 26);
 			this->newFileToolStripMenuItem->Text = L"Save file";
 			this->newFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::newFileToolStripMenuItem_Click);
 			// 
@@ -251,7 +254,7 @@ namespace GUItWINFORMtexteditor {
 					this->regularToolStripMenuItem, this->toolStripMenuItem1
 			});
 			this->textStyleToolStripMenuItem->Name = L"textStyleToolStripMenuItem";
-			this->textStyleToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->textStyleToolStripMenuItem->Size = System::Drawing::Size(170, 26);
 			this->textStyleToolStripMenuItem->Text = L"Text style";
 			// 
 			// boldToolStripMenuItem
@@ -287,17 +290,18 @@ namespace GUItWINFORMtexteditor {
 			this->complieToolStripMenuItem->Name = L"complieToolStripMenuItem";
 			this->complieToolStripMenuItem->Size = System::Drawing::Size(108, 24);
 			this->complieToolStripMenuItem->Text = L"Loading font";
+			this->complieToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::complieToolStripMenuItem_Click);
 			// 
 			// MyForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->AutoScaleDimensions = System::Drawing::SizeF(120, 120);
+			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Dpi;
+			this->AutoSize = true;
 			this->ClientSize = System::Drawing::Size(1166, 552);
 			this->Controls->Add(this->checkBox2);
 			this->Controls->Add(this->checkBox1);
 			this->Controls->Add(this->richTextBox1);
 			this->Controls->Add(this->menuStrip1);
-			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->KeyPreview = true;
 			this->MainMenuStrip = this->menuStrip1;
@@ -312,6 +316,7 @@ namespace GUItWINFORMtexteditor {
 		}
 #pragma endregion
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+
 	}
     
 	private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -327,14 +332,9 @@ namespace GUItWINFORMtexteditor {
 			this->richTextBox1->ForeColor = System::Drawing::Color::Black; //#Fixed bug with text;
 		}
 	}
-	//Showing short infomation	  
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		
-			
-	}
+	//Showing short infomation	  }
 private: System::Void richTextBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	//this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Tahoma", 20.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-		//static_cast<System::Byte>(0)));
+	
 }
 	private: System::Void checkBox2_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	if (checkBox2->Checked) {this->checkBox2->Text = L"Disable readonly"; this->richTextBox1->ReadOnly = true;
@@ -418,10 +418,40 @@ private: System::Void toolStripMenuItem8_Click(System::Object^ sender, System::E
 	this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Tahoma", 25.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 		static_cast<System::Byte>(0)));
 }
-	private: System::Void toolStripMenuItem7_Click(System::Object^ sender, System::EventArgs^ e) {
+    private: System::Void toolStripMenuItem7_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Tahoma", 25.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
 
+}
+	private: System::Void complieToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		std::string convert_font;
+		std::ifstream file_find;
+
+		OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
+		openFileDialog1->ShowDialog();
+		//openFileDialog1->InitialDirectory = "c:\\" || "d://";
+		;
+		//openFileDialog1->Filter = "Font.txt";
+		//openFileDialog1->FilterIndex = 2;
+		//openFileDialog1->Multiselect = true;
+
+		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+		{
+			openFileDialog1->Title = "Loading font";
+			openFileDialog1->Filter = "CP files (*.cp)|*.cp|All files (*.*)|*.*|txt files (*.txt)|*.txt";
+			System::String ^ lines = System::IO::File::ReadAllText(openFileDialog1->FileName);
+			System::SharedPtr<FontFileDefinition> fileDef = System::MakeObject<FontFileDefinition>(u"ttf", System::MakeObject<FileSystemStreamSource>(fontPath));
+		
+			this->richTextBox1->Font = (gcnew System::Drawing::Font(lines, 25.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			/*
+			if(!lines)
+			{
+				MessageBox::Show(L"File not found", "Attention", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			}
+			*/
+
+		}
 	}
 };
 }
