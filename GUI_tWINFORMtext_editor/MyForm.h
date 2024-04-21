@@ -38,7 +38,7 @@ namespace GUItWINFORMtexteditor {
 		}
 	private: System::Windows::Forms::RichTextBox^ richTextBox1;
 	private: System::Windows::Forms::CheckBox^ checkBox1;
-	private: System::Windows::Forms::Button^ button1;
+
 
 
 	private: System::Windows::Forms::CheckBox^ checkBox2;
@@ -90,7 +90,6 @@ namespace GUItWINFORMtexteditor {
 		{
 			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
-			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->checkBox2 = (gcnew System::Windows::Forms::CheckBox());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->menuToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -131,18 +130,6 @@ namespace GUItWINFORMtexteditor {
 			this->checkBox1->UseVisualStyleBackColor = true;
 			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkBox1_CheckedChanged);
 			// 
-			// button1
-			// 
-			this->button1->AutoSize = true;
-			this->button1->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
-			this->button1->Location = System::Drawing::Point(453, 516);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(74, 26);
-			this->button1->TabIndex = 2;
-			this->button1->Text = L"Show info";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
-			// 
 			// checkBox2
 			// 
 			this->checkBox2->AutoSize = true;
@@ -163,7 +150,7 @@ namespace GUItWINFORMtexteditor {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1166, 28);
+			this->menuStrip1->Size = System::Drawing::Size(1166, 30);
 			this->menuStrip1->TabIndex = 6;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -174,7 +161,7 @@ namespace GUItWINFORMtexteditor {
 					this->deleteFieldToolStripMenuItem, this->openFileToolStripMenuItem, this->newFileToolStripMenuItem, this->textStyleToolStripMenuItem
 			});
 			this->menuToolStripMenuItem->Name = L"menuToolStripMenuItem";
-			this->menuToolStripMenuItem->Size = System::Drawing::Size(60, 24);
+			this->menuToolStripMenuItem->Size = System::Drawing::Size(60, 26);
 			this->menuToolStripMenuItem->Text = L"Menu";
 			// 
 			// sizeToolStripMenuItem
@@ -184,7 +171,7 @@ namespace GUItWINFORMtexteditor {
 					this->toolStripMenuItem3, this->toolStripMenuItem4, this->toolStripMenuItem5
 			});
 			this->sizeToolStripMenuItem->Name = L"sizeToolStripMenuItem";
-			this->sizeToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->sizeToolStripMenuItem->Size = System::Drawing::Size(170, 26);
 			this->sizeToolStripMenuItem->Text = L"Size";
 			// 
 			// toolStripMenuItem2
@@ -218,21 +205,21 @@ namespace GUItWINFORMtexteditor {
 			// deleteFieldToolStripMenuItem
 			// 
 			this->deleteFieldToolStripMenuItem->Name = L"deleteFieldToolStripMenuItem";
-			this->deleteFieldToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->deleteFieldToolStripMenuItem->Size = System::Drawing::Size(170, 26);
 			this->deleteFieldToolStripMenuItem->Text = L"Delete field";
 			this->deleteFieldToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::deleteFieldToolStripMenuItem_Click);
 			// 
 			// openFileToolStripMenuItem
 			// 
 			this->openFileToolStripMenuItem->Name = L"openFileToolStripMenuItem";
-			this->openFileToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->openFileToolStripMenuItem->Size = System::Drawing::Size(170, 26);
 			this->openFileToolStripMenuItem->Text = L"Open file";
 			this->openFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::openFileToolStripMenuItem_Click);
 			// 
 			// newFileToolStripMenuItem
 			// 
 			this->newFileToolStripMenuItem->Name = L"newFileToolStripMenuItem";
-			this->newFileToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->newFileToolStripMenuItem->Size = System::Drawing::Size(170, 26);
 			this->newFileToolStripMenuItem->Text = L"Save file";
 			this->newFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::newFileToolStripMenuItem_Click);
 			// 
@@ -243,34 +230,34 @@ namespace GUItWINFORMtexteditor {
 					this->regularToolStripMenuItem, this->toolStripMenuItem1
 			});
 			this->textStyleToolStripMenuItem->Name = L"textStyleToolStripMenuItem";
-			this->textStyleToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->textStyleToolStripMenuItem->Size = System::Drawing::Size(170, 26);
 			this->textStyleToolStripMenuItem->Text = L"Text style";
 			// 
 			// boldToolStripMenuItem
 			// 
 			this->boldToolStripMenuItem->Name = L"boldToolStripMenuItem";
-			this->boldToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->boldToolStripMenuItem->Size = System::Drawing::Size(156, 26);
 			this->boldToolStripMenuItem->Text = L"Bold";
 			this->boldToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::boldToolStripMenuItem_Click);
 			// 
 			// regularToolStripMenuItem
 			// 
 			this->regularToolStripMenuItem->Name = L"regularToolStripMenuItem";
-			this->regularToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->regularToolStripMenuItem->Size = System::Drawing::Size(156, 26);
 			this->regularToolStripMenuItem->Text = L"Regular";
 			this->regularToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::regularToolStripMenuItem_Click);
 			// 
 			// toolStripMenuItem1
 			// 
 			this->toolStripMenuItem1->Name = L"toolStripMenuItem1";
-			this->toolStripMenuItem1->Size = System::Drawing::Size(224, 26);
+			this->toolStripMenuItem1->Size = System::Drawing::Size(156, 26);
 			this->toolStripMenuItem1->Text = L"Underline";
 			this->toolStripMenuItem1->Click += gcnew System::EventHandler(this, &MyForm::toolStripMenuItem2_Click);
 			// 
 			// infoToolStripMenuItem
 			// 
 			this->infoToolStripMenuItem->Name = L"infoToolStripMenuItem";
-			this->infoToolStripMenuItem->Size = System::Drawing::Size(49, 24);
+			this->infoToolStripMenuItem->Size = System::Drawing::Size(49, 26);
 			this->infoToolStripMenuItem->Text = L"Info";
 			this->infoToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::infoToolStripMenuItem_Click);
 			// 
@@ -280,7 +267,6 @@ namespace GUItWINFORMtexteditor {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1166, 552);
 			this->Controls->Add(this->checkBox2);
-			this->Controls->Add(this->button1);
 			this->Controls->Add(this->checkBox1);
 			this->Controls->Add(this->richTextBox1);
 			this->Controls->Add(this->menuStrip1);
