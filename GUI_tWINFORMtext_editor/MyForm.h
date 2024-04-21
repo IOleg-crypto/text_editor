@@ -11,6 +11,7 @@ namespace GUItWINFORMtexteditor {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Drawing::Text;
 
 	/// <summary>
 	/// Summary for MyForm
@@ -69,6 +70,8 @@ namespace GUItWINFORMtexteditor {
 	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuItem7;
 	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuItem8;
 	private: System::Windows::Forms::ToolStripMenuItem^ complieToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ toolStripComboBox1;
+
 
 
 	private: System::ComponentModel::IContainer^ components;
@@ -114,6 +117,7 @@ namespace GUItWINFORMtexteditor {
 			this->toolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->infoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->complieToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->toolStripComboBox1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -287,10 +291,18 @@ namespace GUItWINFORMtexteditor {
 			// 
 			// complieToolStripMenuItem
 			// 
+			this->complieToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->toolStripComboBox1 });
 			this->complieToolStripMenuItem->Name = L"complieToolStripMenuItem";
-			this->complieToolStripMenuItem->Size = System::Drawing::Size(108, 24);
-			this->complieToolStripMenuItem->Text = L"Loading font";
+			this->complieToolStripMenuItem->Size = System::Drawing::Size(104, 24);
+			this->complieToolStripMenuItem->Text = L"Change font";
 			this->complieToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::complieToolStripMenuItem_Click);
+			// 
+			// toolStripComboBox1
+			// 
+			this->toolStripComboBox1->Name = L"toolStripComboBox1";
+			this->toolStripComboBox1->Size = System::Drawing::Size(224, 26);
+			this->toolStripComboBox1->Text = L"Roboto";
+			this->toolStripComboBox1->Click += gcnew System::EventHandler(this, &MyForm::toolStripComboBox1_Click);
 			// 
 			// MyForm
 			// 
@@ -438,12 +450,15 @@ private: System::Void toolStripMenuItem8_Click(System::Object^ sender, System::E
 		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 		{
 			openFileDialog1->Title = "Loading font";
-			openFileDialog1->Filter = "CP files (*.cp)|*.cp|All files (*.*)|*.*|txt files (*.txt)|*.txt";
+			//openFileDialog1->Filter = "CP files (*.cp)|*.cp|All files (*.*)|*.*|txt files (*.txt)|*.txt";
+			openFileDialog1->DefaultExt = "*.ttf";
+			openFileDialog1->Filter = "Font Files|*.ttf";
 			System::String ^ lines = System::IO::File::ReadAllText(openFileDialog1->FileName);
-			System::SharedPtr<FontFileDefinition> fileDef = System::MakeObject<FontFileDefinition>(u"ttf", System::MakeObject<FileSystemStreamSource>(fontPath));
+			//System::SharedPtr<FontFileDefinition> fileDef = System::MakeObject<FontFileDefinition>(u"ttf", System::MakeObject<FileSystemStreamSource>(fontPath));
 		
-			this->richTextBox1->Font = (gcnew System::Drawing::Font(lines, 25.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			//this->richTextBox1->Font = (gcnew System::Drawing::Font(lines, 25.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				//static_cast<System::Byte>(0)));
+			this->richTextBox1->Font = gcnew System::Drawing::Font(openFileDialog1->FileName , 25.0, System::Drawing::FontStyle::Regular , System::Drawing::GraphicsUnit::Point , static_cast<System::Byte>(0));
 			/*
 			if(!lines)
 			{
@@ -453,5 +468,9 @@ private: System::Void toolStripMenuItem8_Click(System::Object^ sender, System::E
 
 		}
 	}
+private: System::Void toolStripComboBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Alex Brush", 25.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+		static_cast<System::Byte>(0)));
+}
 };
 }

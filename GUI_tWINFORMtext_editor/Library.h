@@ -16,9 +16,12 @@
 #include <ostream>
 #include <fstream>
 #include <msclr/marshal.h>
-#include <array>
+#include "winrt/Windows.UI.Xaml.Documents.h"
 
 using namespace msclr::interop;
+using namespace winrt;
+//using namespace Windows::UI::Xaml;
+//using namespace Windows::UI::Xaml::Documents;
 
 /*
 

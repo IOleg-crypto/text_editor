@@ -7,6 +7,9 @@ D:\gitnext\GUI_tWINFORMtext_editor\GUI_tWINFORMtext_editor\Library.h(8,1): warni
   D:\gitnext\GUI_tWINFORMtext_editor\GUI_tWINFORMtext_editor\Library.h(6,1):
   see previous definition of '_WIN32_WINNT'
   
-D:\gitnext\GUI_tWINFORMtext_editor\GUI_tWINFORMtext_editor\MyForm.cpp(11,15): warning C4551: function call missing argument list
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\cppwinrt\winrt\impl\Windows.UI.Xaml.Media.Animation.0.h(2308,39): warning C4002: too many arguments for function-like macro invocation 'GetCurrentTime'
+  (compiling source file 'MyForm.cpp')
+  
+D:\gitnext\GUI_tWINFORMtext_editor\GUI_tWINFORMtext_editor\MyForm.cpp(12,15): warning C4551: function call missing argument list
   MyForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   GUI_tWINFORMtext_editor.vcxproj -> D:\gitnext\GUI_tWINFORMtext_editor\x64\Release\GUI_tWINFORMtext_editor.exe
