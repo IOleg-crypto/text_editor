@@ -17,5 +17,5 @@ git clone (https://github.com/IOleg-crypto/text_editor.git)
 Default git clone **(SSH key)**
 
 ```text
-git@github.com:IOleg-crypto/text_editor.git
+git clone git@github.com:IOleg-crypto/text_editor.git
 ```
