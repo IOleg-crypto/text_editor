@@ -1,5 +1,5 @@
-
 #pragma once
+
 
 #include "Library.h"
 //#include "Extension.h"
@@ -137,6 +137,7 @@ namespace GUItWINFORMtexteditor {
 			this->richTextBox1->TabIndex = 0;
 			this->richTextBox1->Text = L"";
 			this->richTextBox1->TextChanged += gcnew System::EventHandler(this, &MyForm::richTextBox1_TextChanged);
+			this->richTextBox1->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::richTextBox1_KeyDown);
 			// 
 			// checkBox1
 			// 
@@ -159,6 +160,7 @@ namespace GUItWINFORMtexteditor {
 			this->checkBox2->Text = L"Enable readonly";
 			this->checkBox2->UseVisualStyleBackColor = true;
 			this->checkBox2->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkBox2_CheckedChanged);
+			this->checkBox2->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::checkBox2_KeyUp);
 			// 
 			// menuStrip1
 			// 
@@ -172,6 +174,7 @@ namespace GUItWINFORMtexteditor {
 			this->menuStrip1->Size = System::Drawing::Size(1166, 28);
 			this->menuStrip1->TabIndex = 6;
 			this->menuStrip1->Text = L"menuStrip1";
+			this->menuStrip1->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::menuStrip1_KeyDown);
 			// 
 			// menuToolStripMenuItem
 			// 
@@ -181,6 +184,7 @@ namespace GUItWINFORMtexteditor {
 			});
 			this->menuToolStripMenuItem->ImageAlign = System::Drawing::ContentAlignment::TopRight;
 			this->menuToolStripMenuItem->Name = L"menuToolStripMenuItem";
+			this->menuToolStripMenuItem->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::S));
 			this->menuToolStripMenuItem->Size = System::Drawing::Size(60, 24);
 			this->menuToolStripMenuItem->Text = L"Menu";
 			// 
@@ -260,14 +264,14 @@ namespace GUItWINFORMtexteditor {
 			// 
 			this->openFileToolStripMenuItem->Name = L"openFileToolStripMenuItem";
 			this->openFileToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->openFileToolStripMenuItem->Text = L"Open file";
+			this->openFileToolStripMenuItem->Text = L"Open file(CTRL + K)";
 			this->openFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::openFileToolStripMenuItem_Click);
 			// 
 			// newFileToolStripMenuItem
 			// 
 			this->newFileToolStripMenuItem->Name = L"newFileToolStripMenuItem";
 			this->newFileToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->newFileToolStripMenuItem->Text = L"Save file";
+			this->newFileToolStripMenuItem->Text = L"Save file (CTRL + S)";
 			this->newFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::newFileToolStripMenuItem_Click);
 			// 
 			// infoToolStripMenuItem
@@ -288,7 +292,7 @@ namespace GUItWINFORMtexteditor {
 			// toolStripComboBox1
 			// 
 			this->toolStripComboBox1->Name = L"toolStripComboBox1";
-			this->toolStripComboBox1->Size = System::Drawing::Size(142, 26);
+			this->toolStripComboBox1->Size = System::Drawing::Size(224, 26);
 			this->toolStripComboBox1->Text = L"Roboto";
 			this->toolStripComboBox1->Click += gcnew System::EventHandler(this, &MyForm::toolStripComboBox1_Click);
 			// 
@@ -347,6 +351,7 @@ namespace GUItWINFORMtexteditor {
 			this->ResizeBegin += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->ResizeEnd += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->SizeChanged += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::MyForm_KeyDown);
 			this->Resize += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
@@ -355,54 +360,10 @@ namespace GUItWINFORMtexteditor {
 
 		}
 #pragma endregion
-		bool nonNumberEntered;
 
-		// Handle the KeyDown event to determine the type of character entered into the control.
-		void textBox1_KeyDown(Object^ sender, System::Windows::Forms::KeyEventArgs^ e)
-		{
-			// Initialize the flag to false.
-			nonNumberEntered = false;
-
-			// Determine whether the keystroke is a number from the top of the keyboard.
-			if (e->KeyCode < Keys::D0 || e->KeyCode > Keys::D9)
-			{
-				// Determine whether the keystroke is a number from the keypad.
-				if (e->KeyCode < Keys::NumPad0 || e->KeyCode > Keys::NumPad9)
-				{
-					// Determine whether the keystroke is a backspace.
-					if (e->KeyCode != Keys::Back)
-					{
-						// A non-numerical keystroke was pressed.
-						// Set the flag to true and evaluate in KeyPress event.
-						nonNumberEntered = true;
-					}
-				}
-			}
-			//If shift key was pressed, it's not a number.
-			if (Control::ModifierKeys == Keys::Shift) {
-				nonNumberEntered = true;
-			}
-		}
-
-		// This event occurs after the KeyDown event and can be used to prevent
-		// characters from entering the control.
-		void textBox1_KeyPress(Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
-		{
-			// Check for the flag being set in the KeyDown event.
-			if (nonNumberEntered == true)
-			{         // Stop the character from being entered into the control since it is non-numerical.
-				e->Handled = true;
-			}
-		}
     //field test
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		//Location = gcnew Point(0, 0);
-		 // Scale our form to look like it did when we designed it.
-	// This adjusts between the screen resolution of the design computer and the workstation.
-		
-
-		// If you want to center the resized screen.
-		CenterToScreen();
+	
 	}
     
 	private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -465,7 +426,7 @@ private: System::Void infoToolStripMenuItem_Click(System::Object^ sender, System
 		openFileDialog1->ShowDialog();
 		richTextBox1->Text = System::IO::File::ReadAllText(openFileDialog1->FileName);
 	}
-    //save file with text
+	//save file with text
 private: System::Void newFileToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	SaveFileDialog^ saveFile1 = gcnew SaveFileDialog;
 
@@ -479,7 +440,7 @@ private: System::Void newFileToolStripMenuItem_Click(System::Object^ sender, Sys
 	{
 		// Save the contents of the RichTextBox into the file.
 		//System::IO::File::WriteAllText(saveFile1->FileName, richTextBox1->Text, System::Text::Encoding::Default);
-		richTextBox1->SaveFile(saveFile1->FileName , RichTextBoxStreamType::PlainText); //save text from richtextbox to new file (without encoding)
+		richTextBox1->SaveFile(saveFile1->FileName, RichTextBoxStreamType::PlainText); //save text from richtextbox to new file (without encoding)
 		//richTextBox1->SaveFile(saveFile1->FileName) = System::Drawing::	
 	}
 	else
@@ -504,11 +465,11 @@ private: System::Void toolStripMenuItem8_Click(System::Object^ sender, System::E
 	this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Tahoma", 25.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 		static_cast<System::Byte>(0)));
 }
-    private: System::Void toolStripMenuItem7_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void toolStripMenuItem7_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Tahoma", 25.0F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
 
-}
+	}
 	private: System::Void complieToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		std::string convert_font;
 		std::ifstream file_find;
@@ -520,7 +481,7 @@ private: System::Void toolStripMenuItem8_Click(System::Object^ sender, System::E
 		//openFileDialog1->Filter = "Font.txt";
 		//openFileDialog1->FilterIndex = 2;
 		//openFileDialog1->Multiselect = true;
-
+		//this->complieToolStripMenuItem->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::S));
 		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 		{
 			openFileDialog1->Title = "Loading font";
@@ -529,7 +490,7 @@ private: System::Void toolStripMenuItem8_Click(System::Object^ sender, System::E
 			openFileDialog1->Filter = "Font Files|*.ttf";
 			System::String^ lines = System::IO::File::ReadAllText(openFileDialog1->FileName);
 			//richTextBox1->Font = gcnew System::Drawing::Font(lines, 10);
-			
+
 
 		}
 	}
@@ -545,7 +506,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 
 }
 private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	
+
 	System::Drawing::Font^ currentFont = richTextBox1->SelectionFont;
 	System::Drawing::FontStyle newFontStyle;
 	newFontStyle = FontStyle::Regular;
@@ -558,6 +519,56 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	richTextBox1->SelectionFont = gcnew System::Drawing::Font(currentFont->FontFamily, currentFont->Size, newFontStyle);
 }
 private: System::Void sizeToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+}
+
+private: System::Void checkBox2_KeyUp(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	
+}
+private: System::Void richTextBox1_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	}
+private: System::Void menuStrip1_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+}
+private: System::Void MyForm_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+
+	if (e->KeyValue == (int)Keys::Control || e->KeyValue == (int)Keys::S )
+	{
+		SaveFileDialog^ saveFile1 = gcnew SaveFileDialog;
+
+		// Initialize the SaveFileDialog to specify the RTF extention for the file.
+		//saveFile1->DefaultExt = "*.txt";
+		saveFile1->Filter = "Text files|*.txt";
+		saveFile1->Title = "3Save file";
+		saveFile1->RestoreDirectory = true;
+		// Determine whether the user selected a file name from the saveFileDialog. 
+		saveFile1->ShowDialog();
+		richTextBox1->SaveFile(saveFile1->FileName, RichTextBoxStreamType::PlainText); //save text from richtextbox to new file (without encoding)		
+	}
+
+	if (e->KeyValue == (int)Keys::Control || e->KeyValue == (int)Keys::K)
+	{
+		OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
+		openFileDialog1->ShowDialog();
+		richTextBox1->Text = System::IO::File::ReadAllText(openFileDialog1->FileName); //save text from richtextbox to new file (without encoding)		
+	}
+	if (e->KeyValue == (int)Keys::Control || e->KeyValue == (int)Keys::M)
+	{
+		//checkBox2->Checked = 1;
+		if (e) {
+			checkBox2->Checked = 1;
+			this->checkBox2->Text = L"Disable readonly"; this->richTextBox1->ReadOnly = true;
+			
+		}
+		if (e)
+		{
+			checkBox2->Checked = 0;
+			this->checkBox2->Text = L"Enable readonly";
+			this->richTextBox1->ReadOnly = false;
+		}
+		//else {  } //save text from richtextbox to new file (without encoding)		
+	}
+
+	
 }
 };
 }
