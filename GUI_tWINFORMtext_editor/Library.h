@@ -16,6 +16,7 @@
 #include <fstream>
 #include <msclr/marshal.h>
 #include <conio.h>
+#include <iso646.h>
 
 using namespace msclr::interop;
 
