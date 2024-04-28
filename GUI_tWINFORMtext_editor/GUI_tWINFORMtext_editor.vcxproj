@@ -112,6 +112,9 @@
       <AdditionalDependencies />
       <SubSystem>NotSet</SubSystem>
     </Link>
+    <Manifest>
+      <EnableDpiAwareness>true</EnableDpiAwareness>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Reference Include="System" />

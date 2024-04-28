@@ -180,33 +180,22 @@ namespace GUItWINFORMtexteditor {
 			this->richTextBox1->AcceptsTab = true;
 			this->richTextBox1->AutoWordSelection = true;
 			this->richTextBox1->BackColor = System::Drawing::SystemColors::ScrollBar;
-			this->richTextBox1->Location = System::Drawing::Point(20, 59);
+			resources->ApplyResources(this->richTextBox1, L"richTextBox1");
 			this->richTextBox1->Name = L"richTextBox1";
-			this->richTextBox1->Size = System::Drawing::Size(1238, 495);
-			this->richTextBox1->TabIndex = 0;
-			this->richTextBox1->Text = L"";
 			this->richTextBox1->TextChanged += gcnew System::EventHandler(this, &MyForm::richTextBox1_TextChanged);
 			this->richTextBox1->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::richTextBox1_KeyDown);
 			// 
 			// checkBox1
 			// 
-			this->checkBox1->AutoSize = true;
-			this->checkBox1->Location = System::Drawing::Point(36, 572);
+			resources->ApplyResources(this->checkBox1, L"checkBox1");
 			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(201, 20);
-			this->checkBox1->TabIndex = 1;
-			this->checkBox1->Text = L"Change color of field to black";
 			this->checkBox1->UseVisualStyleBackColor = true;
 			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkBox1_CheckedChanged);
 			// 
 			// checkBox2
 			// 
-			this->checkBox2->AutoSize = true;
-			this->checkBox2->Location = System::Drawing::Point(284, 572);
+			resources->ApplyResources(this->checkBox2, L"checkBox2");
 			this->checkBox2->Name = L"checkBox2";
-			this->checkBox2->Size = System::Drawing::Size(128, 20);
-			this->checkBox2->TabIndex = 4;
-			this->checkBox2->Text = L"Enable readonly";
 			this->checkBox2->UseVisualStyleBackColor = true;
 			this->checkBox2->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkBox2_CheckedChanged);
 			this->checkBox2->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::checkBox2_KeyUp);
@@ -218,11 +207,8 @@ namespace GUItWINFORMtexteditor {
 				this->menuToolStripMenuItem,
 					this->infoToolStripMenuItem, this->complieToolStripMenuItem, this->changeColorToolStripMenuItem
 			});
-			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			resources->ApplyResources(this->menuStrip1, L"menuStrip1");
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1258, 28);
-			this->menuStrip1->TabIndex = 6;
-			this->menuStrip1->Text = L"menuStrip1";
 			this->menuStrip1->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::menuStrip1_KeyDown);
 			// 
 			// menuToolStripMenuItem
@@ -232,11 +218,8 @@ namespace GUItWINFORMtexteditor {
 					this->openFileToolStripMenuItem, this->newFileToolStripMenuItem, this->makeFileToolStripMenuItem, this->changeFieldToolStripMenuItem,
 					this->deleteFieldToolStripMenuItem, this->changeColorTextToolStripMenuItem
 			});
-			this->menuToolStripMenuItem->ImageAlign = System::Drawing::ContentAlignment::TopRight;
+			resources->ApplyResources(this->menuToolStripMenuItem, L"menuToolStripMenuItem");
 			this->menuToolStripMenuItem->Name = L"menuToolStripMenuItem";
-			this->menuToolStripMenuItem->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::S));
-			this->menuToolStripMenuItem->Size = System::Drawing::Size(46, 24);
-			this->menuToolStripMenuItem->Text = L"File";
 			// 
 			// sizeToolStripMenuItem
 			// 
@@ -245,8 +228,7 @@ namespace GUItWINFORMtexteditor {
 					this->toolStripMenuItem3, this->toolStripMenuItem4, this->toolStripMenuItem5, this->toolStripMenuItem7, this->toolStripMenuItem8
 			});
 			this->sizeToolStripMenuItem->Name = L"sizeToolStripMenuItem";
-			this->sizeToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->sizeToolStripMenuItem->Text = L"Size";
+			resources->ApplyResources(this->sizeToolStripMenuItem, L"sizeToolStripMenuItem");
 			this->sizeToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::sizeToolStripMenuItem_Click);
 			// 
 			// toolStripMenuItem2
@@ -254,8 +236,7 @@ namespace GUItWINFORMtexteditor {
 			this->toolStripMenuItem2->Checked = true;
 			this->toolStripMenuItem2->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->toolStripMenuItem2->Name = L"toolStripMenuItem2";
-			this->toolStripMenuItem2->Size = System::Drawing::Size(119, 26);
-			this->toolStripMenuItem2->Text = L"10.0";
+			resources->ApplyResources(this->toolStripMenuItem2, L"toolStripMenuItem2");
 			this->toolStripMenuItem2->Click += gcnew System::EventHandler(this, &MyForm::toolStripMenuItem2_Click);
 			// 
 			// toolStripMenuItem3
@@ -263,8 +244,7 @@ namespace GUItWINFORMtexteditor {
 			this->toolStripMenuItem3->Checked = true;
 			this->toolStripMenuItem3->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->toolStripMenuItem3->Name = L"toolStripMenuItem3";
-			this->toolStripMenuItem3->Size = System::Drawing::Size(119, 26);
-			this->toolStripMenuItem3->Text = L"15.0";
+			resources->ApplyResources(this->toolStripMenuItem3, L"toolStripMenuItem3");
 			this->toolStripMenuItem3->Click += gcnew System::EventHandler(this, &MyForm::toolStripMenuItem3_Click);
 			// 
 			// toolStripMenuItem4
@@ -272,8 +252,7 @@ namespace GUItWINFORMtexteditor {
 			this->toolStripMenuItem4->Checked = true;
 			this->toolStripMenuItem4->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->toolStripMenuItem4->Name = L"toolStripMenuItem4";
-			this->toolStripMenuItem4->Size = System::Drawing::Size(119, 26);
-			this->toolStripMenuItem4->Text = L"20.0";
+			resources->ApplyResources(this->toolStripMenuItem4, L"toolStripMenuItem4");
 			this->toolStripMenuItem4->Click += gcnew System::EventHandler(this, &MyForm::toolStripMenuItem4_Click);
 			// 
 			// toolStripMenuItem5
@@ -281,8 +260,7 @@ namespace GUItWINFORMtexteditor {
 			this->toolStripMenuItem5->Checked = true;
 			this->toolStripMenuItem5->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->toolStripMenuItem5->Name = L"toolStripMenuItem5";
-			this->toolStripMenuItem5->Size = System::Drawing::Size(119, 26);
-			this->toolStripMenuItem5->Text = L"22.0";
+			resources->ApplyResources(this->toolStripMenuItem5, L"toolStripMenuItem5");
 			this->toolStripMenuItem5->Click += gcnew System::EventHandler(this, &MyForm::toolStripMenuItem5_Click);
 			// 
 			// toolStripMenuItem7
@@ -290,8 +268,7 @@ namespace GUItWINFORMtexteditor {
 			this->toolStripMenuItem7->Checked = true;
 			this->toolStripMenuItem7->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->toolStripMenuItem7->Name = L"toolStripMenuItem7";
-			this->toolStripMenuItem7->Size = System::Drawing::Size(119, 26);
-			this->toolStripMenuItem7->Text = L"25.0";
+			resources->ApplyResources(this->toolStripMenuItem7, L"toolStripMenuItem7");
 			this->toolStripMenuItem7->Click += gcnew System::EventHandler(this, &MyForm::toolStripMenuItem7_Click);
 			// 
 			// toolStripMenuItem8
@@ -299,80 +276,66 @@ namespace GUItWINFORMtexteditor {
 			this->toolStripMenuItem8->Checked = true;
 			this->toolStripMenuItem8->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->toolStripMenuItem8->Name = L"toolStripMenuItem8";
-			this->toolStripMenuItem8->Size = System::Drawing::Size(119, 26);
-			this->toolStripMenuItem8->Text = L"30.0";
+			resources->ApplyResources(this->toolStripMenuItem8, L"toolStripMenuItem8");
 			this->toolStripMenuItem8->Click += gcnew System::EventHandler(this, &MyForm::toolStripMenuItem8_Click);
 			// 
 			// openFileToolStripMenuItem
 			// 
 			this->openFileToolStripMenuItem->Name = L"openFileToolStripMenuItem";
-			this->openFileToolStripMenuItem->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::K));
-			this->openFileToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->openFileToolStripMenuItem->Text = L"Open file";
+			resources->ApplyResources(this->openFileToolStripMenuItem, L"openFileToolStripMenuItem");
 			this->openFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::openFileToolStripMenuItem_Click);
 			// 
 			// newFileToolStripMenuItem
 			// 
 			this->newFileToolStripMenuItem->Name = L"newFileToolStripMenuItem";
-			this->newFileToolStripMenuItem->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::S));
-			this->newFileToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->newFileToolStripMenuItem->Text = L"Save file as ";
+			resources->ApplyResources(this->newFileToolStripMenuItem, L"newFileToolStripMenuItem");
 			this->newFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::newFileToolStripMenuItem_Click);
 			// 
 			// makeFileToolStripMenuItem
 			// 
 			this->makeFileToolStripMenuItem->Name = L"makeFileToolStripMenuItem";
-			this->makeFileToolStripMenuItem->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Alt | System::Windows::Forms::Keys::L));
-			this->makeFileToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->makeFileToolStripMenuItem->Text = L"Make file";
+			resources->ApplyResources(this->makeFileToolStripMenuItem, L"makeFileToolStripMenuItem");
 			this->makeFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::makeFileToolStripMenuItem_Click);
 			// 
 			// changeFieldToolStripMenuItem
 			// 
 			this->changeFieldToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->installToolStripMenuItem });
 			this->changeFieldToolStripMenuItem->Name = L"changeFieldToolStripMenuItem";
-			this->changeFieldToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->changeFieldToolStripMenuItem->Text = L"Change field";
+			resources->ApplyResources(this->changeFieldToolStripMenuItem, L"changeFieldToolStripMenuItem");
 			// 
 			// installToolStripMenuItem
 			// 
 			this->installToolStripMenuItem->Name = L"installToolStripMenuItem";
-			this->installToolStripMenuItem->Size = System::Drawing::Size(131, 26);
-			this->installToolStripMenuItem->Text = L"Install";
+			resources->ApplyResources(this->installToolStripMenuItem, L"installToolStripMenuItem");
 			// 
 			// deleteFieldToolStripMenuItem
 			// 
 			this->deleteFieldToolStripMenuItem->Name = L"deleteFieldToolStripMenuItem";
-			this->deleteFieldToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->deleteFieldToolStripMenuItem->Text = L"Delete field";
+			resources->ApplyResources(this->deleteFieldToolStripMenuItem, L"deleteFieldToolStripMenuItem");
 			this->deleteFieldToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::deleteFieldToolStripMenuItem_Click);
 			// 
 			// changeColorTextToolStripMenuItem
 			// 
 			this->changeColorTextToolStripMenuItem->Name = L"changeColorTextToolStripMenuItem";
-			this->changeColorTextToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->changeColorTextToolStripMenuItem->Text = L"Change color text";
+			resources->ApplyResources(this->changeColorTextToolStripMenuItem, L"changeColorTextToolStripMenuItem");
 			this->changeColorTextToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::changeColorTextToolStripMenuItem_Click);
 			// 
 			// infoToolStripMenuItem
 			// 
 			this->infoToolStripMenuItem->Name = L"infoToolStripMenuItem";
-			this->infoToolStripMenuItem->Size = System::Drawing::Size(49, 24);
-			this->infoToolStripMenuItem->Text = L"Info";
+			resources->ApplyResources(this->infoToolStripMenuItem, L"infoToolStripMenuItem");
 			this->infoToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::infoToolStripMenuItem_Click);
 			// 
 			// complieToolStripMenuItem
 			// 
 			this->complieToolStripMenuItem->Name = L"complieToolStripMenuItem";
-			this->complieToolStripMenuItem->Size = System::Drawing::Size(104, 24);
-			this->complieToolStripMenuItem->Text = L"Change font";
+			resources->ApplyResources(this->complieToolStripMenuItem, L"complieToolStripMenuItem");
 			this->complieToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::complieToolStripMenuItem_Click);
 			// 
 			// changeColorToolStripMenuItem
 			// 
 			this->changeColorToolStripMenuItem->Name = L"changeColorToolStripMenuItem";
-			this->changeColorToolStripMenuItem->Size = System::Drawing::Size(111, 24);
-			this->changeColorToolStripMenuItem->Text = L"Change color";
+			resources->ApplyResources(this->changeColorToolStripMenuItem, L"changeColorToolStripMenuItem");
 			this->changeColorToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::changeColorToolStripMenuItem_Click);
 			// 
 			// fontDialog1
@@ -392,33 +355,23 @@ namespace GUItWINFORMtexteditor {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(3, 3);
+			resources->ApplyResources(this->button1, L"button1");
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(109, 31);
-			this->button1->TabIndex = 7;
-			this->button1->Text = L"Bold";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(118, 3);
+			resources->ApplyResources(this->button2, L"button2");
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(102, 31);
-			this->button2->TabIndex = 8;
-			this->button2->Text = L"Regular";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click_1);
 			// 
 			// button3
 			// 
 			this->button3->BackColor = System::Drawing::Color::White;
-			this->button3->ImageAlign = System::Drawing::ContentAlignment::TopLeft;
-			this->button3->Location = System::Drawing::Point(226, 4);
+			resources->ApplyResources(this->button3, L"button3");
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(92, 30);
-			this->button3->TabIndex = 9;
-			this->button3->Text = L"Underline";
 			this->button3->UseVisualStyleBackColor = false;
 			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
@@ -427,47 +380,35 @@ namespace GUItWINFORMtexteditor {
 			this->panel1->Controls->Add(this->button3);
 			this->panel1->Controls->Add(this->button2);
 			this->panel1->Controls->Add(this->button1);
-			this->panel1->Location = System::Drawing::Point(330, 0);
+			resources->ApplyResources(this->panel1, L"panel1");
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(321, 37);
-			this->panel1->TabIndex = 11;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::panel1_Paint);
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(778, 33);
+			resources->ApplyResources(this->textBox1, L"textBox1");
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(153, 22);
-			this->textBox1->TabIndex = 12;
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox1_TextChanged);
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(697, 31);
+			resources->ApplyResources(this->button4, L"button4");
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(75, 23);
-			this->button4->TabIndex = 13;
-			this->button4->Text = L"Search";
 			this->button4->UseVisualStyleBackColor = true;
 			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
 			// 
 			// button5
 			// 
-			this->button5->Location = System::Drawing::Point(937, 31);
+			resources->ApplyResources(this->button5, L"button5");
 			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(31, 22);
-			this->button5->TabIndex = 14;
-			this->button5->Text = L"X";
 			this->button5->UseVisualStyleBackColor = true;
 			this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
 			// 
 			// MyForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(120, 120);
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Dpi;
-			this->AutoSize = true;
-			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
-			this->ClientSize = System::Drawing::Size(1258, 604);
+			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Inherit;
+			resources->ApplyResources(this, L"$this");
+			this->CausesValidation = false;
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->textBox1);
@@ -476,12 +417,12 @@ namespace GUItWINFORMtexteditor {
 			this->Controls->Add(this->checkBox1);
 			this->Controls->Add(this->richTextBox1);
 			this->Controls->Add(this->menuStrip1);
-			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::Fixed3D;
-			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
 			this->KeyPreview = true;
 			this->MainMenuStrip = this->menuStrip1;
+			this->MaximizeBox = false;
+			this->MinimizeBox = false;
 			this->Name = L"MyForm";
-			this->Text = L"Notepad";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->ResizeBegin += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->ResizeEnd += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
@@ -675,7 +616,7 @@ private: System::Void richTextBox1_KeyDown(System::Object^ sender, System::Windo
 private: System::Void menuStrip1_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 }
 private: System::Void MyForm_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-	/*
+	/*  its ok , but if click one button of combination it working as both buttons
 	if (e->KeyValue == (int)Keys::Control || e->KeyValue == (int)Keys::S )
 	{
 		Stream^ myStream;
