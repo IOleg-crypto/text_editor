@@ -118,6 +118,7 @@ namespace GUItWINFORMtexteditor {
 	private: System::Windows::Forms::RichTextBox^ richTextBox1;
 	private: System::Windows::Forms::TabControl^ tabControl1;
 	private: System::Windows::Forms::ToolStripMenuItem^ clearPageToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ saveFileToolStripMenuItem;
 
 
 
@@ -171,6 +172,7 @@ namespace GUItWINFORMtexteditor {
 			this->toolStripMenuItem7 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->toolStripMenuItem8 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->openFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->saveFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->newFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->makeFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->deleteFieldToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -230,10 +232,10 @@ namespace GUItWINFORMtexteditor {
 			// 
 			// menuToolStripMenuItem
 			// 
-			this->menuToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(8) {
+			this->menuToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(9) {
 				this->sizeToolStripMenuItem,
-					this->openFileToolStripMenuItem, this->newFileToolStripMenuItem, this->makeFileToolStripMenuItem, this->deleteFieldToolStripMenuItem,
-					this->changeColorTextToolStripMenuItem, this->addPageToolStripMenuItem, this->clearPageToolStripMenuItem
+					this->openFileToolStripMenuItem, this->saveFileToolStripMenuItem, this->newFileToolStripMenuItem, this->makeFileToolStripMenuItem,
+					this->deleteFieldToolStripMenuItem, this->changeColorTextToolStripMenuItem, this->addPageToolStripMenuItem, this->clearPageToolStripMenuItem
 			});
 			resources->ApplyResources(this->menuToolStripMenuItem, L"menuToolStripMenuItem");
 			this->menuToolStripMenuItem->Name = L"menuToolStripMenuItem";
@@ -301,6 +303,12 @@ namespace GUItWINFORMtexteditor {
 			this->openFileToolStripMenuItem->Name = L"openFileToolStripMenuItem";
 			resources->ApplyResources(this->openFileToolStripMenuItem, L"openFileToolStripMenuItem");
 			this->openFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::openFileToolStripMenuItem_Click);
+			// 
+			// saveFileToolStripMenuItem
+			// 
+			this->saveFileToolStripMenuItem->Name = L"saveFileToolStripMenuItem";
+			resources->ApplyResources(this->saveFileToolStripMenuItem, L"saveFileToolStripMenuItem");
+			this->saveFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::saveFileToolStripMenuItem_Click);
 			// 
 			// newFileToolStripMenuItem
 			// 
@@ -428,6 +436,7 @@ namespace GUItWINFORMtexteditor {
 			resources->ApplyResources(this->tabPage1, L"tabPage1");
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			this->tabPage1->UseWaitCursor = true;
 			// 
 			// richTextBox1
 			// 
@@ -436,6 +445,7 @@ namespace GUItWINFORMtexteditor {
 			this->richTextBox1->BackColor = System::Drawing::SystemColors::ScrollBar;
 			resources->ApplyResources(this->richTextBox1, L"richTextBox1");
 			this->richTextBox1->Name = L"richTextBox1";
+			this->richTextBox1->UseWaitCursor = true;
 			this->richTextBox1->TextChanged += gcnew System::EventHandler(this, &MyForm::richTextBox1_TextChanged);
 			this->richTextBox1->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::richTextBox1_KeyDown);
 			// 
@@ -445,6 +455,7 @@ namespace GUItWINFORMtexteditor {
 			resources->ApplyResources(this->tabControl1, L"tabControl1");
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
+			this->tabControl1->ControlAdded += gcnew System::Windows::Forms::ControlEventHandler(this, &MyForm::tabControl1_ControlAdded);
 			// 
 			// MyForm
 			// 
@@ -493,6 +504,7 @@ namespace GUItWINFORMtexteditor {
 		{
 			this->richTextBox1->BackColor = System::Drawing::Color::Black;
 			this->richTextBox1->ForeColor = System::Drawing::Color::White;
+
 		}
 		else
 		{
@@ -778,22 +790,37 @@ private: System::Void richTextBox2_TextChanged(System::Object^ sender, System::E
 }
 public: System::Void addPageToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	//added new tabs
-	//RichTextBox^ textbox = gcnew RichTextBox;
+
 	RichTextBox^ textbox1_rich = gcnew RichTextBox;
 	textbox1_rich->Dock = DockStyle::Fill;
+	
 	String^ title = String::Concat("New file",
 		(tabControl1->TabCount + 1).ToString());
 	TabPage^ myTabPage = gcnew TabPage(title);
 	tabControl1->TabPages->Add(myTabPage);
 
 	myTabPage->Controls->Add(textbox1_rich);
-	
+
+	fontDialog1->Font = textbox1_rich->Font;
+	fontDialog1->Color = textbox1_rich->ForeColor;
+	if (fontDialog1->ShowDialog() == System::Windows::Forms::DialogResult::Cancel)
+	{
+		textbox1_rich->Font = fontDialog1->Font;
+		textbox1_rich->ForeColor = fontDialog1->Color;
+	}
+		
 }
 private: System::Void clearPageToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ title = String::Concat("New file",
 		(tabControl1->TabCount + 1).ToString());
 	TabPage^ myTabPage = gcnew TabPage(title);
 	tabControl1->TabPages->Remove(tabControl1->SelectedTab);
+}
+private: System::Void saveFileToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+}
+private: System::Void tabControl1_ControlAdded(System::Object^ sender, System::Windows::Forms::ControlEventArgs^ e) {
+	
 }
 };
 }
