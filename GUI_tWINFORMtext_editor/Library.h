@@ -17,6 +17,7 @@
 #include <msclr/marshal.h>
 #include <conio.h>
 #include <iso646.h>
+//#include <afxwin.h>
 
 using namespace msclr::interop;
 
