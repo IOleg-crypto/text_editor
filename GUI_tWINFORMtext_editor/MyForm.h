@@ -62,7 +62,7 @@ namespace GUItWINFORMtexteditor {
 
 
 
-	private: System::Windows::Forms::ToolStripMenuItem^ deleteFieldToolStripMenuItem;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ infoToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ openFileToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ newFileToolStripMenuItem;
@@ -87,11 +87,11 @@ namespace GUItWINFORMtexteditor {
 	private: System::Windows::Forms::ToolStripMenuItem^ makeFileToolStripMenuItem;
 
 
-	private: System::Windows::Forms::ImageList^ imageList1;
+
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
-	private: System::Windows::Forms::Panel^ panel1;
+
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::Button^ button5;
@@ -171,7 +171,6 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox2 = (gcnew System::Windows::Forms::CheckBox());
@@ -180,7 +179,6 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			this->openFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->newFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->makeFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->deleteFieldToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->changeColorTextToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->infoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->complieToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -197,18 +195,15 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			this->fontDialog1 = (gcnew System::Windows::Forms::FontDialog());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
-			this->imageList1 = (gcnew System::Windows::Forms::ImageList(this->components));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->colorDialog2 = (gcnew System::Windows::Forms::ColorDialog());
 			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->menuStrip1->SuspendLayout();
-			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// checkBox1
@@ -228,21 +223,21 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			// 
 			// menuStrip1
 			// 
+			resources->ApplyResources(this->menuStrip1, L"menuStrip1");
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
 				this->menuToolStripMenuItem,
 					this->infoToolStripMenuItem, this->complieToolStripMenuItem, this->changeColorToolStripMenuItem, this->editToolStripMenuItem
 			});
-			resources->ApplyResources(this->menuStrip1, L"menuStrip1");
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->RenderMode = System::Windows::Forms::ToolStripRenderMode::Professional;
+			this->menuStrip1->RenderMode = System::Windows::Forms::ToolStripRenderMode::System;
 			this->menuStrip1->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::menuStrip1_KeyDown);
 			// 
 			// menuToolStripMenuItem
 			// 
-			this->menuToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
+			this->menuToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->openFileToolStripMenuItem,
-					this->newFileToolStripMenuItem, this->makeFileToolStripMenuItem, this->deleteFieldToolStripMenuItem, this->changeColorTextToolStripMenuItem
+					this->newFileToolStripMenuItem, this->makeFileToolStripMenuItem, this->changeColorTextToolStripMenuItem
 			});
 			resources->ApplyResources(this->menuToolStripMenuItem, L"menuToolStripMenuItem");
 			this->menuToolStripMenuItem->Name = L"menuToolStripMenuItem";
@@ -264,12 +259,6 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			this->makeFileToolStripMenuItem->Name = L"makeFileToolStripMenuItem";
 			resources->ApplyResources(this->makeFileToolStripMenuItem, L"makeFileToolStripMenuItem");
 			this->makeFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::makeFileToolStripMenuItem_Click);
-			// 
-			// deleteFieldToolStripMenuItem
-			// 
-			this->deleteFieldToolStripMenuItem->Name = L"deleteFieldToolStripMenuItem";
-			resources->ApplyResources(this->deleteFieldToolStripMenuItem, L"deleteFieldToolStripMenuItem");
-			this->deleteFieldToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::deleteFieldToolStripMenuItem_Click);
 			// 
 			// changeColorTextToolStripMenuItem
 			// 
@@ -356,12 +345,6 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			this->openFileDialog1->FileName = L"openFileDialog1";
 			this->openFileDialog1->FileOk += gcnew System::ComponentModel::CancelEventHandler(this, &MyForm::openFileDialog1_FileOk);
 			// 
-			// imageList1
-			// 
-			this->imageList1->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imageList1.ImageStream")));
-			this->imageList1->TransparentColor = System::Drawing::Color::Transparent;
-			this->imageList1->Images->SetKeyName(0, L"underline.png");
-			// 
 			// button1
 			// 
 			resources->ApplyResources(this->button1, L"button1");
@@ -383,15 +366,6 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			this->button3->Name = L"button3";
 			this->button3->UseVisualStyleBackColor = false;
 			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
-			// 
-			// panel1
-			// 
-			this->panel1->Controls->Add(this->button3);
-			this->panel1->Controls->Add(this->button2);
-			this->panel1->Controls->Add(this->button1);
-			resources->ApplyResources(this->panel1, L"panel1");
-			this->panel1->Name = L"panel1";
-			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::panel1_Paint);
 			// 
 			// textBox1
 			// 
@@ -426,18 +400,21 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			// 
 			// MyForm
 			// 
+			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Inherit;
 			resources->ApplyResources(this, L"$this");
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Dpi;
 			this->CausesValidation = false;
+			this->Controls->Add(this->button3);
 			this->Controls->Add(this->richTextBox1);
+			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button5);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->textBox1);
-			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->checkBox2);
 			this->Controls->Add(this->checkBox1);
 			this->Controls->Add(this->menuStrip1);
-			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
+			this->HelpButton = true;
 			this->KeyPreview = true;
 			this->MainMenuStrip = this->menuStrip1;
 			this->MaximizeBox = false;
@@ -451,7 +428,6 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			this->Resize += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
-			this->panel1->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -660,7 +636,9 @@ private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Form
 }
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 	int index = 0;
+	//TODO : Fix replacing text
 	String^ temp = textBox1->Text;
+	String^ searchtext = richTextBox1->Text;
 	richTextBox1->Text = "";
 	richTextBox1->Text = temp;
 
@@ -670,8 +648,9 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 		richTextBox1->Find(textBox1->Text, index, richTextBox1->TextLength, RichTextBoxFinds::None);
 		//underline color
 		richTextBox1->SelectionBackColor = Color::Red;
-		index = richTextBox1->Text->IndexOf(textBox1->Text, index) + 100;
+		index = richTextBox1->Text->IndexOf(textBox1->Text, index);
 	}
+	
 
 }
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
