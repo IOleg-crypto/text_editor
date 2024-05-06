@@ -127,18 +127,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CustomRichTextBox.cpp" />
-    <ClCompile Include="InheritanceElement.cpp" />
-    <ClCompile Include="InstallerRichTextBox.cpp" />
     <ClCompile Include="MyForm.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CustomRichTextBox.h" />
-    <ClInclude Include="Extension.h" />
-    <ClInclude Include="InheritanceElement.h" />
-    <ClInclude Include="InstallerRichTextBox.h">
-      <FileType>CppClass</FileType>
-    </ClInclude>
     <ClInclude Include="Library.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
