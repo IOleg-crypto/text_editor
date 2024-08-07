@@ -150,6 +150,7 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 
 
 
+
 	private: System::ComponentModel::IContainer^ components;
 
 
@@ -720,6 +721,8 @@ private: System::Void pasteToolStripMenuItem_Click(System::Object^ sender, Syste
 }
 private: System::Void selectAllToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	richTextBox1->SelectAll();
+}
+private: System::Void numericUpDown1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

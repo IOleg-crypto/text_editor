@@ -1,13 +1,7 @@
-﻿  MyForm.cpp
+﻿  Checking for duplicate filenames...
+  MyForm.cpp
 /MyForm.cpp(1,1): warning C4857: C++/CLI mode does not support C++ versions newer than C++20; setting language to /std:c++20
-  (compiling source file '/MyForm.cpp')
-  
-D:\gitnext\GUI_tWINFORMtext_editor\GUI_tWINFORMtext_editor\MyForm.h(511,10): warning C4101: 'myStream': unreferenced local variable
-  (compiling source file 'MyForm.cpp')
-  
-D:\gitnext\GUI_tWINFORMtext_editor\GUI_tWINFORMtext_editor\MyForm.h(654,6): error C2374: 'index': redefinition; multiple initialization
-  (compiling source file 'MyForm.cpp')
-  D:\gitnext\GUI_tWINFORMtext_editor\GUI_tWINFORMtext_editor\MyForm.h(638,6):
-  see declaration of 'index'
-  
+D:\gitnext\GUI_tWINFORMtext_editor\GUI_tWINFORMtext_editor\MyForm.h(512,10): warning C4101: 'myStream': unreferenced local variable
 D:\gitnext\GUI_tWINFORMtext_editor\GUI_tWINFORMtext_editor\MyForm.cpp(12,15): warning C4551: function call missing argument list
+  MyForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  GUI_tWINFORMtext_editor.vcxproj -> D:\gitnext\GUI_tWINFORMtext_editor\x64\Release\GUI_tWINFORMtext_editor.exe
